@@ -4,6 +4,8 @@ import (
     "net/smtp"
 )
 
+
+
 func SendEmail(senderEmail, smtpHost, smtpPort string, auth smtp.Auth, recipient string, emailContent EmailContent) error {
     to := []string{recipient}
 
