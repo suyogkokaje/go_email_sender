@@ -17,7 +17,7 @@ type EmailConfig struct {
 
 // function to check whether the environment variables are there or not
 func CheckConfig() {
-    godotenv.Load()
+	godotenv.Load()
 	SenderEmail, _ := os.LookupEnv("SENDER_EMAIL")
 	SecretKey, _ := os.LookupEnv("SECRET_KEY")
 	SmtpHost, _ := os.LookupEnv("SMTP_HOST")
