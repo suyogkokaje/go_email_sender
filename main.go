@@ -1,9 +1,9 @@
 package main
 
 import (
-	"log"
 	config "go_email_sender/config"
 	"go_email_sender/email"
+	"log"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 	}
 
 	for _, recipient := range recipients {
-		if err := email.SendEmail(configs.SenderEmail, configs.SmtpHost, configs.SmtpPort, auth, recipient, emailContent); err != nil {
+		if err := email.SendEmail(configs, auth, recipient, emailContent); err != nil {
 			log.Printf("Error sending email to %s: %v", recipient, err)
 		} else {
 			log.Printf("Email sent to %s", recipient)

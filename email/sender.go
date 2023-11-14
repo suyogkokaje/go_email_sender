@@ -1,10 +1,11 @@
 package email
 
 import (
+	"go_email_sender/config"
 	"net/smtp"
 )
 
-func SendEmail(senderEmail, smtpHost, smtpPort string, auth smtp.Auth, recipient string, emailContent EmailContent) error {
+func SendEmail(configs *config.EmailConfig, auth smtp.Auth, recipient string, emailContent EmailContent) error {
 	to := []string{recipient}
 
 	msg := []byte("To: " + recipient + "\r\n" +
@@ -12,6 +13,6 @@ func SendEmail(senderEmail, smtpHost, smtpPort string, auth smtp.Auth, recipient
 		"\r\n" +
 		emailContent.Body)
 
-	err := smtp.SendMail(smtpHost+":"+smtpPort, auth, senderEmail, to, msg)
+	err := smtp.SendMail(configs.SmtpHost+":"+configs.SmtpPort, auth, configs.SenderEmail, to, msg)
 	return err
 }
