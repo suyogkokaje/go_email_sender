@@ -15,7 +15,7 @@ func main() {
 		log.Fatal("Failed to load recipients:", err)
 	}
 
-	auth := email.CreateAuth(configs.SenderEmail, configs.SecretKey, configs.SmtpHost)
+	auth := email.CreateAuth(configs)
 
 	emailContent, err := email.LoadEmailContent("email_content.json")
 	if err != nil {
