@@ -1,7 +1,7 @@
 package main
 
 import (
-	config "go_email_sender/config"
+	"go_email_sender/config"
 	"go_email_sender/email"
 	"log"
 )
