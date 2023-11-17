@@ -2,14 +2,14 @@ package email
 
 import (
 	"go_email_sender/config"
-	"go_email_sender/template"
+	"go_email_sender/parser"
 	"net/smtp"
 )
 
-func SendEmail(configs *config.EmailConfig, auth smtp.Auth, data template.TemplateData, emailContent EmailContent) error {
+func SendEmail(configs *config.EmailConfig, auth smtp.Auth, filePath string, data parser.TemplateData, emailContent EmailContent) error {
 
 	//load the template
-	emailBody := template.ParseHTML(data)
+	emailBody := parser.ParseHTML(filePath, data)
 
 	to := []string{data.Email}
 
