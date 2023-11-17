@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-    <h1>Hello,{{.Name}}</h1>
+    <h1>Hello {{index .Values "name"}}</h1>
+    <h1>Your age is {{index .Values "age"}}</h1>
 </body>
 </html>

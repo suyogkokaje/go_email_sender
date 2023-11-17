@@ -6,14 +6,14 @@ import (
 	"net/smtp"
 )
 
-func SendEmail(configs *config.EmailConfig, auth smtp.Auth, recipient string, emailContent EmailContent) error {
+func SendEmail(configs *config.EmailConfig, auth smtp.Auth, data template.TemplateData, emailContent EmailContent) error {
 
 	//load the template
-	emailBody := template.ParseHTML()
+	emailBody := template.ParseHTML(data)
 
-	to := []string{recipient}
+	to := []string{data.Email}
 
-	msg := []byte("To: " + recipient + "\r\n" +
+	msg := []byte("To: " + data.Email + "\r\n" +
 		"Subject: " + emailContent.Subject + "\r\n" +
 		"Content-Type: text/html; charset=UTF-8\r\n" +
 		emailBody)
