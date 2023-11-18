@@ -13,8 +13,10 @@ func main() {
 
 	auth := email.CreateAuth(configs)
 
+	//csv file path
 	csvPath := "/home/suyog/Coding/web/go_email_sender/data/emaildata.csv"
 
+	//html template file path
 	templatePath := "/home/suyog/Coding/web/go_email_sender/template/template.html"
 
 	emailContent, err := email.LoadEmailContent("email_content.json")

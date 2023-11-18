@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
+    <!-- 
+        - add the variable in the below format 
+
+            {{index .Values "variable_name"}}
+        
+        - the variable_name must be present in the headers of the csv file 
+
+        - variable_name is case sensitive
+    -->
     <h1>Hello {{index .Values "name"}}</h1>
     <h1>Your age is {{index .Values "age"}}</h1>
 </body>
